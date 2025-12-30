@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body 
+
+        {
+            background-color:aqua;
+            text-align: center;
+            font-family: Arial sans-serif;
+
+        }
+        h1 {
+            color: rgb(255, 127, 236);
+            
+        }
+        p {
+            color:blue;
+            font-size: 20px;
+        }
+        button{
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 18px; 
+            cursor: pointer;
+
+        }
+        #msg {
+            color: green;
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            
+        }
+        .center {
+            text-align: center;
+        }
+        input{
+            padding: 8px;
+            width: 220px;
+            text-align: center;
+            border-radius: 10px;
+            border: none;
+        }
+        text {
+            text-align: center;
+            color: green;
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        select input {
+            padding: 10px;
+            
+        }
+        select {
+            
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            border-color: greenyellow;
+            
+            
+        }
+        map {
+            padding: 10px;
+            lighting-color: greenyellow;
+            text-align: center;
+        }
+        .country code {
+            padding: 10px;
+            width: 30px;
+
+        }
+         
+            
+        
+
+        
+    </style>
+</head>
+<body>
+    <select id="language" onchange="changeLang()">
+  <option value="en">English</option>
+  <option value="hi">Hindi</option>
+</select>
+<br><br>
+
+    <h1>WELCOME TO CTH FAMAILY</h1>
+    <P>YOUR EVENT MY RESPOSNBILITY TO MAKE GORGEOUSE AND JOYFULLY   
+
+<h3>📍 Tent Location</h3>
+
+<iframe
+  src="https://www.google.com/maps?q=Patna,Bihar&output=embed"
+  width="100%"
+  height="300"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy">
+</iframe>
+
+    </P>
+    <div class="center">
+        <h2>BOOK YOUR EVENT</h2>
+        <input type="text" id="name" placeholder="enter your name">
+        <br><br>
+        
+        <iframe src="C:\Users\pritam kumar\Downloads\WhatsApp Video 2025-12-25 at 1.10.42 AM.mp4" frameborder="10"></iframe>
+        <br>
+        <select  id="country code">
+            <option value="+91">in india (+91)</option>
+            <option value="+1">us USA (+1) </option>
+        </select>
+        
+        <input type="tel"  id="mobile" placeholder="enter your mobile number">
+         <br><br>
+         <input type="date"  id="date">
+         <br><br>
+         
+         <input type="time"  id="time"> 
+         <br><br>
+         
+         <input type="text"  id="guest" placeholder="enter approxmetly guest">
+         <br><br>
+         <select id="eventType">
+            <option value="">select event type</option>
+            <option value="wedding">wedding tent</option>
+            <option value="party">birthday party tent</option>
+            <option value="reception">reception, function tent</option>
+            
+            
+            
+             </select>
+             <br><br>
+
+            
+
+             
+             <input type="text" id="address" placeholder="enter your adress ">
+
+             <br><br>
+             <input type="text" id="address" placeholder="Enter event address">
+             <br><br>
+
+<script>
+function openMap() {
+  window.open("https://www.google.com/maps?q=Patna,Bihar", "_blank");
+}
+</script>
+
+
+              <P id="liveprice"></P>
+
+         
+         
+
+         
+        
+        
+         <div class="center">
+    <BUtton onclick="booktent()">BOOK NOW</button>
+        <a href="tel:916204124662">
+            <button>📞call now</button>
+        </a>
+    
+        <p id="msg"></p>
+        
+        
+        </div>
+        
+
+
+    
+    <p id="msg"></p>
+    <script>
+        
+        function booktent() {
+            
+
+
+
+            
+        
+        
+        
+         
+
+
+            var name = document.getElementById("name").value;
+            var country = document.getElementById("country code").value;
+            var mobile = document.getElementById("mobile").value;
+            var date = document.getElementById("date").value;
+            var guest = document.getElementById("guest").value;
+            var address = document.getElementById("address").value;
+            var eventType = document.getElementById("eventType").value;
+            var time = document.getElementById("time").value;
+            
+        
+           
+
+
+
+             if (name === "" || mobile === "" || date === "" || guest === "" || address ==="" || event === "" || time ==="" ||  pricetext ==="")  {
+            
+             document.getElementById("msg").innerText ="❌please fill all deatil";
+             
+             return;
+              } 
+              var message = "🎉 tent booking done 🎪\n\n" +
+              "please call me for any details \n\n"+
+             "name:" + name + "\n" +
+            "mobile:" + mobile + "\n" +
+            "date:" + date + "\n" +
+            "time" + time + "\n" +
+            "guest:" + guest + "\n" +
+            "address:" + address + "\n" +
+            "price:" + pricetext + "\n"+
+            "eventType:" + eventType + "\n"
+            
+            var encodedMsg = encodeURIComponent(message);
+
+            var myNumber = "916204124662";
+            var waLink = "https://wa.me/" + myNumber + "?text=" + encodedMsg;
+            
+        
+        window.open(waLink, "_blank");
+        var smsLink = "sms:" + mobile + "?body=" + encodedMsg;
+        window.location.href = smsLink;
+    
+    
+
+            var pricetext = ""; 
+            
+            if (eventType === "wedding") {
+                pricetext = "💍wedding tent price: ₹50,000 - ₹10,0000";
+             }
+             
+             else if (eventType === "party") {
+                pricetext = "🎂birthday party tent: ₹15,000 - ₹20,000";
+             }
+             else if (eventType === "reception") {
+                pricetext = "reception tent: ₹30,000 - ₹35,000";
+             }
+             else {
+                pricetext = "❌please select event type";
+             }
+              
+             var message = "🎉 tent booking done 🎪\n\n" +
+              "please call me for any details \n\n"+
+             "name:" + name + "\n" +
+            "mobile:" + mobile + "\n" +
+            "date:" + date + "\n" +
+            "guest:" + guest + "\n" +
+            "address:" + address + "\n" +
+            "price:" + pricetext + "\n"+
+            "eventType:" + eventType + "\n"
+
+            
+             document.getElementById("price").innerText = pricetext;
+             document.getElementById("msg").innerText = "✅ booking datails sent!\n" + 
+             "😊 thank you ✅" + name + ", youre tent is booked 🎉"
+            };
+
+function changeLang() {
+  var lang = document.getElementById("language").value;
+
+  if (lang === "hi") {
+    document.getElementById("title").innerText = "टेंट बुकिंग";
+    document.getElementById("bookBtn").innerText = "बुक करें";
+  } else {
+    document.getElementById("title").innerText = "Tent Booking";
+    document.getElementById("bookBtn").innerText = "Book";
+  }
+}
+        
+            function showMap() {
+  var address = document.getElementById("address").value;
+  document.getElementById("map").src =
+    "https://www.google.com/maps?q=" + address + "&output=embed";
+}
+
+
+
+
+        
+        
+        
+        
+
+    
+
+    
+                    
+    
+            
+        
+            
+    </script>
+    
+</body>
+</html>
